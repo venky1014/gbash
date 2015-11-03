@@ -5,15 +5,8 @@
 
 using namespace std;
 extern bool cond;
-echo::echo(){
 
-}
-QString echo::echo1(QString str){
-
-    return str;
-}
-QString echo::input(QString cmd){
-   // int index = 0;
+echo::echo(QString cmd){
     QString output;
 
     if(cmd.contains(">>")){
@@ -61,12 +54,21 @@ QString echo::input(QString cmd){
     else if(cmd.contains("|")){
 
     }
+
     else {
-        echo *obj = new echo;
+
         QString sub = cmd.mid(5);
-        output = obj->echo1(sub);
+        output = this->echo_n(sub);
     }
-    return output;
+
+    qDebug() << output;
 }
+
+
+QString echo::echo_n(QString str){  // n = normal
+
+    return str;
+}
+
 
 

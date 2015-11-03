@@ -7,7 +7,7 @@ ls::ls(){
 
 QString ls::input(QString cmd){
     QString output;
-    if(cmd.contains("a"))
+    if(cmd.contains("-a"))
     {
         QFileInfo file("ProjFile.txt");
         QString filename = file.absoluteFilePath();
