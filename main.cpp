@@ -34,23 +34,23 @@ int main(int argc, char *argv[])
     }
 
     else if(user_str.startsWith("ls") && qcondition == true)
-         qDebug() << l->input(user_str);
+         qDebug() << "Work in progress";
 
     else if (user_str.startsWith("pwd") && qcondition == true)
-             qDebug() << "Work in progress";
+         qDebug() << "Work in progress";
 
     else if(user_str.startsWith("clear") && qcondition == true)
-                    system("cls");
+         system("cls");
 
     else if(user_str.startsWith("mkdir") && qcondition == true)
-                        m->input(user_str);
+         qDebug() << "Work in progress";
 
     else if(user_str.startsWith("rm") && qcondition == true)
-                            r->input(user_str);
+        qDebug() << "Work in progress";
     else
         qDebug() << "Invalid command";
 
-    }while(!qs);
+    }while(qs);
 
     return a.exec();
 
