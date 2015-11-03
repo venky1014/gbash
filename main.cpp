@@ -31,22 +31,33 @@ int main(int argc, char *argv[])
 
     if(user_str.startsWith("echo ") && qcondition == true){   // extra space to prevent echosdfsfd from working.
         echo e(user_str);   // make this dynamic if possible.
+
     }
 
-    else if(user_str.startsWith("ls") && qcondition == true)
+    else if(user_str.startsWith("ls") && qcondition == true){
          qDebug() << "Work in progress";
+         ls l(user_str);
 
-    else if (user_str.startsWith("pwd") && qcondition == true)
+    }
+
+    else if (user_str.startsWith("pwd") && qcondition == true){
          qDebug() << "Work in progress";
+         pwd p(user_str);
+    }
 
     else if(user_str.startsWith("clear") && qcondition == true)
          system("cls");
 
-    else if(user_str.startsWith("mkdir") && qcondition == true)
+    else if(user_str.startsWith("mkdir") && qcondition == true){
          qDebug() << "Work in progress";
+        mkdir m(user_str);
+    }
 
-    else if(user_str.startsWith("rm") && qcondition == true)
+    else if(user_str.startsWith("rm") && qcondition == true){
         qDebug() << "Work in progress";
+        rm r(user_str);
+    }
+
     else
         qDebug() << "Invalid command";
 

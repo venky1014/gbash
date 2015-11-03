@@ -16,34 +16,43 @@ public:
 };
 
 class ls{
-public :
-    ls();
-    QString input(QString cmd);
-};
-class touch {
-    touch();
+    public :
+        ls(QString);
 
 };
+
+class touch{
+    public :
+        touch(QString);
+};
+
 class cd{
-    cd();
+    public :
+        cd(QString);
 };
+
 class pwd{
-    pwd();
+    public :
+        pwd(QString);
 
 };
+
 class rm {
-public:
-    rm();
-    QString input(QString cmd);
-};
-class cat {
-    cat();
+    public:
+    rm(QString);
 
 };
+
+class cat {
+    public :
+        cat(QString);
+
+};
+
 class mkdir {
-public:
-    mkdir();
-    QString input(QString cmd);
+    public:
+        mkdir(QString);
+
 };
 
 #endif // COMMAND_H

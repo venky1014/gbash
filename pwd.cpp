@@ -1,3 +1,6 @@
 #include "command.h"
 #include <QFileInfoList>
-//QString input(QString cmd){}
+
+pwd :: pwd(QString cmd){
+
+}

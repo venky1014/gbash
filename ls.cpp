@@ -1,23 +1,20 @@
 #include "command.h"
 #include <QDebug>
 #include <QFileInfoList>
-ls::ls(){
 
-}
-
-QString ls::input(QString cmd){
+ls::ls(QString cmd){
     QString output;
     if(cmd.contains("-a"))
     {
         QFileInfo file("ProjFile.txt");
         QString filename = file.absoluteFilePath();
-        return filename;
+        qDebug()<< filename;
     }
     else{
-       // ls *obj = new ls;
         QFileInfo file("ProjFile.txt");
         QString filename = file.fileName();
-        return filename;
+        qDebug()<< filename;
     }
-    return output;
+    qDebug() << output;
 }
+
