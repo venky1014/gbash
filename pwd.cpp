@@ -1,6 +1,6 @@
 #include "command.h"
 #include <QFileInfoList>
 
-pwd :: pwd(QString cmd){
+pwd::pwd(QString cmd){
 
 }
