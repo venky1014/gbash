@@ -8,17 +8,17 @@ extern bool cond;
 
 echo::echo(QString cmd){
     QString output;
-
+    QTextStream out (stdout);
     if(cmd.contains(">>")){
         QFile file;
         file.setFileName("C:/Users/Venkant Raman/Documents/Avatar/Qt programs/Terminal_pro/ProjFile.txt");
         if (!file.exists())
-            qDebug() << "File does not exist!";
+            out << "File does not exist!\n";
         else
         {
 
             int index = cmd.indexOf(">>");
-            //qDebug() << index;
+            //out << index;
 
             QString in = cmd.remove(index, cmd.length());
             in = cmd.mid(5);
@@ -36,7 +36,7 @@ echo::echo(QString cmd){
         QFile file;
         file.setFileName("C:/Users/Venkant Raman/Documents/Avatar/Qt programs/Terminal_pro/ProjFile.txt");
         if (!file.exists())
-            qDebug() << "File does not exist!";
+            out << "File does not exist!\n";
         else
         {
 
@@ -61,7 +61,7 @@ echo::echo(QString cmd){
         output = this->echo_n(sub);
     }
 
-    qDebug() << output;
+    out << output <<endl;
 }
 
 

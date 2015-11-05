@@ -3,18 +3,19 @@
 #include <QFileInfoList>
 
 ls::ls(QString cmd){
+    QTextStream out (stdout);
     QString output;
     if(cmd.contains("-a"))
     {
         QFileInfo file("ProjFile.txt");
         QString filename = file.absoluteFilePath();
-        qDebug()<< filename;
+        out<< filename;
     }
     else{
         QFileInfo file("ProjFile.txt");
         QString filename = file.fileName();
-        qDebug()<< filename;
+        out<< filename ;
     }
-    qDebug() << output;
+    out << output <<endl;
 }
 
