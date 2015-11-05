@@ -8,16 +8,36 @@
 #include <QFile>
 #include "command.h"
 #include <QDebug>
+#include<QCommandLineParser>
 
 extern bool qcondition;
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
+
+    QCommandLineParser parser;
+    parser.addPositionalArgument("runtype", QCoreApplication::translate("main", "The run type required to run command line"));
+
+    QCommandLineOption freerunOption(QStringList() << "f" << "free",
+                QCoreApplication::translate("main", "Start console in free run"));
+    parser.addOption(freerunOption);
+
+    QCommandLineOption tutorialOption(QStringList() << "t" << "tutorial",
+                QCoreApplication::translate("main", "Start console in tutorial mode"));
+    parser.addOption(tutorialOption);
+
+    parser.process(a);
+    const QStringList args = parser.positionalArguments();
+    bool free = parser.isSet(freerunOption);
+    // if free is true - start in free run
+
     bool qs = true;
     QString user_str;
 
     QTextStream stream (stdin);
     QTextStream out (stdout);
+
+    qDebug() << a.arguments() << free << args;// returns current working directory.
 
     do{
         printf("$ ");
