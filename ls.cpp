@@ -1,6 +1,8 @@
 #include "command.h"
 #include <QDebug>
 #include <QFileInfoList>
+#include <QCommandLineParser>
+
 
 ls::ls(QString cmd){
     QTextStream out (stdout);
