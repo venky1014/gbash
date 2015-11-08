@@ -1,8 +1,8 @@
 #include "command.h"
 #include <QString>
-#include <QDebug>
+#include <QDir>
 #include <QFile>
-
+#include <QTextStream>
 using namespace std;
 extern bool cond;
 
@@ -10,8 +10,11 @@ echo::echo(QString cmd){
     QString output;
     QTextStream out (stdout);
     if(cmd.contains(">>")){
+
+        QDir home;
         QFile file;
-        file.setFileName("C:/Users/Venkant Raman/Documents/Avatar/Qt programs/Terminal_pro/ProjFile.txt");
+        home.setCurrent("C:/Users/Venkant Raman/Documents/GitHub/gbash/workspace");
+
         if (!file.exists())
             out << "File does not exist!\n";
         else

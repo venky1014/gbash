@@ -46,8 +46,8 @@ int main(int argc, char *argv[])
         {
             qs = false; //quit statement
             qcondition = false;
-            out << "Thank You Agent\n";
-            return 0;
+            out << "Thank You\n";
+            break;
         }
 
     if(user_str.startsWith("echo ")){   // extra space to prevent echosdfsfd from working.
@@ -58,31 +58,38 @@ int main(int argc, char *argv[])
     else if(user_str.startsWith("ls")){
          out << "Work in progress";
          ls l(user_str);
-
     }
 
     else if (user_str.startsWith("pwd")){
-         out << "Work in progress";
-         pwd p(user_str);
+        out << "Work in progress\n";
     }
 
     else if(user_str.startsWith("clear"))
          system("cls");
 
-    else if(user_str.startsWith("mkdir")){
+    else if(user_str.startsWith("mkdir ")){
          out << "Work in progress";
         mkdir m(user_str);
     }
 
-    else if(user_str.startsWith("rm")){
+    else if(user_str.startsWith("rm ")){
         out << "Work in progress";
         rm r(user_str);
     }
 
+    else if(user_str.startsWith("touch ")){
+        touch t(user_str);
+    }
+
+    else if(user_str.startsWith("cat ")){
+        cat c(user_str);
+    }
+
     else
-        out << "Invalid command\n";
+         qWarning("Command not found\n");
 
     }while(qs);
+    return 0;
 
     return a.exec();
 

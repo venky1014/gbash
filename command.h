@@ -33,7 +33,7 @@ class cd{
 
 class pwd{
     public :
-        pwd(QString);
+      pwd();
 
 };
 

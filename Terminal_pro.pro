@@ -21,7 +21,9 @@ SOURCES += main.cpp \
     ls.cpp \
     pwd.cpp \
     mkdir.cpp \
-    rm.cpp
+    rm.cpp \
+    cat.cpp \
+    touch.cpp\
 
 HEADERS += \
     command.h \
