@@ -10,9 +10,6 @@ class echo{
 public:
     echo(QString);
     QString echo_n(QString); // n for unparameterized
-    QString echo_a(QString); // for -a
-    QString echo_s(QString); // for -s
-    QString echo_t(QString); // for -t      don't know if these exist. Just examples.
 };
 
 class ls{

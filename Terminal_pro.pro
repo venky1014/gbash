@@ -24,6 +24,7 @@ SOURCES += main.cpp \
     rm.cpp \
     cat.cpp \
     touch.cpp\
+    cd.cpp\
 
 HEADERS += \
     command.h \
