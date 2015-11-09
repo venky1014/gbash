@@ -55,13 +55,12 @@ int main(int argc, char *argv[])
 
     }
 
-    else if(user_str.startsWith("ls")){
-         out << "Work in progress";
+    else if(user_str.startsWith("ls ")){
          ls l(user_str);
     }
 
     else if (user_str.startsWith("pwd")){
-        out << "Work in progress\n";
+        pwd p();
     }
 
     else if(user_str.startsWith("clear"))
@@ -84,6 +83,9 @@ int main(int argc, char *argv[])
     else if(user_str.startsWith("cat ")){
         cat c(user_str);
     }
+
+    else if(user_str.startsWith("cd "))
+        cd c(user_str);
 
     else
          qWarning("Command not found\n");

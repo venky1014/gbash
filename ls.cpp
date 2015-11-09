@@ -1,5 +1,6 @@
 #include "command.h"
 #include <QDebug>
+#include <QDir>
 #include <QFileInfoList>
 #include <QCommandLineParser>
 
@@ -9,7 +10,7 @@ ls::ls(QString cmd){
     QString output;
     if(cmd.contains("-a"))
     {
-        QFileInfo file("ProjFile.txt");
+        QFileInfo file;
         QString filename = file.absoluteFilePath();
         out<< filename;
     }

@@ -3,11 +3,13 @@
 #include <QDir>
 #include <QFile>
 #include <QTextStream>
+#include <QCommandLineParser>
 using namespace std;
-extern bool cond;
 
 echo::echo(QString cmd){
     QString output;
+    QCommandLineParser parse;
+    parse.addHelpOption();
     QTextStream out (stdout);
     if(cmd.contains(">>")){
 
