@@ -7,8 +7,11 @@
 #include <QDir>
 #include <QFile>
 #include "command.h"
-#include <QDebug>
+
 #include<QCommandLineParser>
+
+#include "globals.h"
+
 
 extern bool qcondition;
 int main(int argc, char *argv[])
@@ -45,7 +48,6 @@ int main(int argc, char *argv[])
         if(user_str.contains("exit"))
         {
             qs = false; //quit statement
-            qcondition = false;
             out << "Thank You\n";
             break;
         }

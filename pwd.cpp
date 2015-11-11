@@ -3,11 +3,10 @@
 #include <QDir>
 #include <QTextStream>
 #include <QDebug>
+#include "globals.h"
 
 pwd::pwd(){
     QTextStream out (stdout);
-    QString output;
-    QDir path;
-    output = path.currentPath();
-    out << output;
+
+    out << var_path;
 }
