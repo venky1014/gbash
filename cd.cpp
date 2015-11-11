@@ -1,13 +1,19 @@
 #include <command.h>
 #include <QDir>
 #include <QFile>
+#include "globals.h"
+#include <QTextStream>
 
 cd::cd(QString cmd){
+    QTextStream out (stdout);
+    QString input = cmd.mid(3);
     QDir home;
-    home.setCurrent("C:Users/Venkant Raman/Documents/GitHub/gbash/workspace/");
-    QString input = cmd.mid(4);
-    if(cmd.contains("--"))
-        home.cdUp();
-    else
-     home.cd(input);
+    if(cmd.contains("--")){
+       if(home.cdUp())
+          out << "Directory changed\n";
+}
+    else{
+     if(home.cd(input))
+         out << "Directories changed\n";
+}
 }
