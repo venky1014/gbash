@@ -8,8 +8,9 @@
 #include <QFile>
 #include "command.h"
 
+#include<QUrl>
 #include<QCommandLineParser>
-
+#include<QDebug>
 #include "globals.h"
 
 
@@ -18,29 +19,22 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    QCommandLineParser parser;
-    parser.addPositionalArgument("runtype", QCoreApplication::translate("main", "The run type required to run command line"));
-
-    QCommandLineOption freerunOption(QStringList() << "f" << "free",
-                QCoreApplication::translate("main", "Start console in free run"));
-    parser.addOption(freerunOption);
-
-    QCommandLineOption tutorialOption(QStringList() << "t" << "tutorial",
-                QCoreApplication::translate("main", "Start console in tutorial mode"));
-    parser.addOption(tutorialOption);
-
-    parser.process(a);
-    const QStringList args = parser.positionalArguments();
-    bool free = parser.isSet(freerunOption);
-    // if free is true - start in free run
+    QCoreApplication::setApplicationName("gbash");
+    QCoreApplication::setApplicationVersion("1.0");
 
     bool qs = true;
-    QString user_str;
 
+    QString user_str;
     QTextStream stream (stdin);
     QTextStream out (stdout);
 
-    qDebug() << a.arguments() << free << args;// returns current working directory.
+    printf( "\t\t\tWelcome to the gBash termainal\n");
+    printf("\n\t\t (-t) Tutorial\t (-m, n) Missions\t (-f) Freeplay\n");
+
+    QString program = "D:/Cpp/qt/build-BashGUI-Desktop_Qt_5_5_0_MinGW_32bit-Debug/debug/BashGUI";
+    QStringList arguments;
+
+    QProcess *myProcess = new QProcess;
 
     do{
         printf("$ ");
@@ -51,8 +45,15 @@ int main(int argc, char *argv[])
             out << "Thank You\n";
             break;
         }
+        if(!user_str.startsWith("freeplay")){
 
-    if(user_str.startsWith("echo ")){   // extra space to prevent echosdfsfd from working.
+            myProcess->start(program, arguments);
+            // write t to file
+        }
+
+
+
+    else if(user_str.startsWith("echo ")){   // extra space to prevent echosdfsfd from working.
         echo e(user_str);   // make this dynamic if possible.
 
     }
@@ -93,7 +94,8 @@ int main(int argc, char *argv[])
          qWarning("Command not found\n");
 
     }while(qs);
-    return 0;
+
+return 0;
 
     return a.exec();
 
