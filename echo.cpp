@@ -6,9 +6,10 @@
 #include <QTextStream>
 #include <QCommandLineParser>
 using namespace std;
-QTextStream out (stdout);
 
 echo::echo(QString cmd){
+    QTextStream out (stdout);
+
     QString output;
     if(cmd.contains(">>")){
         int index = cmd.indexOf(">>");
