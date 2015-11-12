@@ -59,12 +59,13 @@ int main(int argc, char *argv[])
 
     }
 
-    else if(user_str.startsWith("ls ")){
+    else if(user_str.startsWith("ls")){
          ls l(user_str);
     }
 
     else if (user_str.startsWith("pwd")){
-        pwd p();
+        pwd *p = new pwd;
+        p->output_path();
     }
 
     else if(user_str.startsWith("clear"))
