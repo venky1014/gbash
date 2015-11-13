@@ -6,5 +6,6 @@
 extern bool set_var; //quit condition
 extern QString var_path;
 extern QCommandLineParser parse;
+extern QDir curr;
 #endif // GLOBALS
 

@@ -7,13 +7,15 @@
 cd::cd(QString cmd){
     QTextStream out (stdout);
     QString input = cmd.mid(3);
-    QDir home;
+    curr = QDir::current();
     if(cmd.contains("--")){
-       if(home.cdUp())
-          out << "Directory changed\n";
+       if(curr.cdUp())
+          out << "Directory changed" << endl;
 }
     else{
-     if(home.cd(input))
-         out << "Directories changed\n";
-}
+     if(curr.cd(input))
+         out << "Directories changed" << endl;
+     else
+         qWarning("Directory doesn't exist!\n");
+    }
 }

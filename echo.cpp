@@ -6,17 +6,16 @@
 #include <QTextStream>
 #include <QCommandLineParser>
 using namespace std;
-QTextStream out (stdout);
 
 echo::echo(QString cmd){
+    QTextStream out (stdout);
+
     QString output;
     if(cmd.contains(">>")){
         int index = cmd.indexOf(">>");
         int length = cmd.length();
         QString filename = cmd.right(length - index - 3);
-        QDir home;
         QFile file(filename);
-        home.setCurrent(var_path);
 
         if (!file.exists())
             out << "File does not exist!\n";
@@ -46,9 +45,7 @@ echo::echo(QString cmd){
             out << "File does not exist!\n";
         else
         {
-
-            int index = cmd.indexOf(">");
-            QString in = cmd.remove(index, cmd.length());
+            QString in = cmd.remove(index, length);
             in = cmd.mid(5);
             string s = in.toStdString();
             QByteArray putt = s.c_str();

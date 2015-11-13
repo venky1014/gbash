@@ -28,8 +28,9 @@ int main(int argc, char *argv[])
     QTextStream stream (stdin);
     QTextStream out (stdout);
 
-    printf( "\t\t\tWelcome to the gBash termainal\n");
-    printf("\n\t\t (-t) Tutorial\t (-m, n) Missions\t (-f) Freeplay\n");
+    out << "                          Welcome to the gBash terminal" << endl;
+    out<<"                 (-t) Tutorial   (-m, n) Missions  (-f) Freeplay  " << endl << endl << endl;
+
 
     QString program = "D:/Cpp/qt/build-BashGUI-Desktop_Qt_5_5_0_MinGW_32bit-Debug/debug/BashGUI";
     QStringList arguments;
@@ -45,7 +46,7 @@ int main(int argc, char *argv[])
             out << "Thank You\n";
             break;
         }
-        if(!user_str.startsWith("freeplay")){
+     else if(user_str.startsWith("freeplay")){
 
             myProcess->start(program, arguments);
             // write t to file
@@ -58,24 +59,23 @@ int main(int argc, char *argv[])
 
     }
 
-    else if(user_str.startsWith("ls ")){
+    else if(user_str.startsWith("ls")){
          ls l(user_str);
     }
 
     else if (user_str.startsWith("pwd")){
-        pwd p();
+        pwd *p = new pwd;
+        p->output_path();
     }
 
     else if(user_str.startsWith("clear"))
          system("cls");
 
     else if(user_str.startsWith("mkdir ")){
-         out << "Work in progress";
         mkdir m(user_str);
     }
 
     else if(user_str.startsWith("rm ")){
-        out << "Work in progress";
         rm r(user_str);
     }
 

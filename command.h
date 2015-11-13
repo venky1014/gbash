@@ -31,7 +31,7 @@ class cd{
 class pwd{
     public :
       pwd();
-
+      void output_path();
 };
 
 class rm {

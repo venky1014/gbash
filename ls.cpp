@@ -10,12 +10,13 @@
 ls::ls(QString cmd){
     QTextStream out (stdout);
     QString output;
+    QDir file_list;
 
     if(cmd.contains("-a"))
     {
-        QFileInfo file;
-        QString filename = file.absoluteFilePath();
-        out<< filename;
+        QStringList names = file_list.entryList();
+        QString list = names.join(' ');
+        out << list << endl;
     }
     else if(cmd.contains("-h") or cmd.contains("--help") or cmd.contains("-?")){
     parse.addHelpOption();
@@ -23,8 +24,7 @@ ls::ls(QString cmd){
     out<< parse.helpText();}
 
     else{
-       QFileInfo list(var_path);
-       out << list.fileName();
+
 
     }
     out << output <<endl;
