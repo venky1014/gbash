@@ -37,6 +37,20 @@ int main(int argc, char *argv[])
 
     QProcess *myProcess = new QProcess;
 
+    // Open common file
+    // if quit
+    QFile modeFile("D:/Cpp/qt/build-BashGUI-Desktop_Qt_5_5_0_MinGW_32bit-Debug/commonfile.txt");
+    if(!modeFile.open(QIODevice::ReadWrite) )
+        ;
+    while(!modeFile.atEnd()){
+        QByteArray line = modeFile.readLine();
+        if(line.startsWith("g : quit")){
+            //end process
+            qDebug() << "Process stopped";
+            myProcess->close();
+        }
+    }
+
     do{
         printf("$ ");
         user_str = stream.readLine();
@@ -46,7 +60,7 @@ int main(int argc, char *argv[])
             out << "Thank You\n";
             break;
         }
-     else if(user_str.startsWith("freeplay")){
+     else if(!(user_str.startsWith("freeplay")||user_str.startsWith("-f")) && (user_str.startsWith("Tutorial")||user_str.startsWith("-t")||user_str.startsWith("mission")||user_str.startsWith("-m") )){
 
             myProcess->start(program, arguments);
             // write t to file
@@ -94,6 +108,8 @@ int main(int argc, char *argv[])
          qWarning("Command not found\n");
 
     }while(qs);
+
+    modeFile.close();
 
 return 0;
 
