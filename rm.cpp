@@ -5,11 +5,12 @@
 
 rm::rm(QString cmd){
     QTextStream out (stdout);
-    QString temp;
     QString dirNAME = cmd.mid(3);
     QDir path;
-    bool removed = path.rmdir(dirNAME);
-    if(removed)
-        temp = "Directories removed";
-    out << temp << endl;
+    if(cmd.contains(".txt"))
+    path.remove(dirNAME);
+    else if(cmd.contains(" -r"))
+        path.removeRecursively();
+    else
+      path.rmdir(dirNAME);
 }

@@ -11,10 +11,11 @@ ls::ls(QString cmd){
     QTextStream out (stdout);
     QString output;
     QDir file_list;
-
+    QStringList filters;
+    filters << ".txt";
     if(cmd.contains("-a"))
     {
-        QStringList names = file_list.entryList();
+        QStringList names = file_list.entryList(QDir::Hidden);
         QString list = names.join(' ');
         out << list << endl;
     }
@@ -24,7 +25,12 @@ ls::ls(QString cmd){
     out<< parse.helpText();}
 
     else{
-
+        QDir make;
+        make.setFilter(QDir::NoDotAndDotDot);
+        make.setSorting(QDir::Unsorted);
+        QStringList names = file_list.entryList(filters, QDir::NoDotAndDotDot, QDir::Unsorted);
+        QString list = names.join(' ');
+        out << list << endl;
 
     }
     out << output <<endl;

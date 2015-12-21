@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
         QByteArray line = modeFile.readLine();
         if(line.startsWith("g : quit")){
             //end process
-            qDebug() << "Process stopped";
+            out << "Process stopped";
             myProcess->close();
         }
     }

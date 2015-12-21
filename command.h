@@ -51,6 +51,10 @@ class mkdir {
         mkdir(QString);
 
 };
+class grep {
+public :
+    grep(QString);
+};
 
 #endif // COMMAND_H
 

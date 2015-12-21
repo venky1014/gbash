@@ -31,11 +31,11 @@ cat::cat(QString cmd){
             QFile reader(in);
             reader.open(QIODevice::ReadOnly);
             QByteArray putt = reader.readAll();
+            out << putt << endl;
             reader.close();
 
             file.open(QIODevice::Append | QIODevice::Text);
             file.write(putt);
-            file.flush();
             file.close();
 
         }
@@ -46,14 +46,13 @@ cat::cat(QString cmd){
         int length = cmd.length();
         QString filename = cmd.right(length - index - 2);
         QFile file(filename);
+        QString in = cmd.remove(index, length);
+        in = cmd.mid(4);
+
         if (!file.exists())
             out << "File does not exist!\n";
         else
         {
-
-            QString in = cmd.remove(index, length);
-            in = cmd.mid(4);
-
             QFile reader(in);
             reader.open(QFile::ReadOnly);
             QByteArray putt = reader.readAll();
@@ -61,6 +60,7 @@ cat::cat(QString cmd){
             reader.close();
 
             file.open(QIODevice::WriteOnly | QIODevice::Text);
+            file.flush();
             file.write(putt);
             file.close();
 

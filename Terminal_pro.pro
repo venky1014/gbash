@@ -25,6 +25,7 @@ SOURCES += main.cpp \
     cat.cpp \
     touch.cpp\
     cd.cpp\
+    grep.cpp
 
 HEADERS += \
     command.h \
